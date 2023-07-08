@@ -1,0 +1,159 @@
+@use '../partials/mixins' as m;
+@use '../partials/variables' as v;
+
+.header {
+    @include m.flex(center, space-around);
+    padding: 1rem 0;
+    background-color: v.$negro;
+
+    p,
+    a {
+        color: v.$blanco;
+        text-decoration: none;
+
+        font: {
+            family: v.$fuente-montserrat;
+        }
+    }
+
+    //Taqueria logo y nav
+    .header-logo {
+        @include m.flex(center, center);
+        gap: 2rem;
+
+        p {
+            font-size: 2rem;
+            font-weight: 900;
+        }
+
+        nav {
+            display: flex;
+            gap: 1rem;
+
+            a {
+                transition: color .5s ease-in;
+                font-size: .8rem;
+                font-weight: 600;
+            }
+
+            a:hover {
+                color: v.$naranja;
+            }
+        }
+    }
+
+
+    //reservaciones y menu hamburguesa
+    .header-reservaciones {
+        @include m.flex(center, center);
+        gap: 3rem;
+
+        img {
+            width: 10rem;
+        }
+
+        a {
+            padding: 1rem 2rem;
+            background-color: v.$naranja;
+            border-radius: 5px;
+
+            transition: background-color .3s ease-in;
+
+            &:hover {
+                background-color: adjust-color(v.$naranja, $lightness: -5%);
+            }
+        }
+
+
+        .header-hamburguesa {
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+
+            div {
+                border-radius: 100px;
+                width: 2.2rem;
+                height: .3rem;
+                background-color: v.$blanco;
+            }
+        }
+        
+    }
+}
+
+.header-presentacion {
+    height: 80vh;
+    background: url('/src/img/portada_web (2).jpg') bottom/cover;
+    position: relative; 
+  }
+  
+  .header-presentacion__bg {
+    width: 100%;
+    height: 80vh;
+    position: absolute;
+    background-color: v.$negro;
+    opacity: .5;
+  }
+
+  .header-1-grid{
+    @include m.grid(2, 1fr);
+    align-items: center;
+    height: 80vh;
+    padding: 2rem;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  
+  }
+
+  .header-presentacion__title {
+    
+    h1, p {
+        color: v.$blanco;
+        font-family: v.$fuente-noto;
+    }
+  
+    h1 {
+        font-size: 4rem;
+        color: v.$naranja;
+    }
+  }
+
+  .header-presentacion__boton{
+    @include m.flex(center, center);
+    gap: 4rem;
+
+
+    a {
+        color: v.$negro;
+        padding: 1.4rem 3rem;
+        border-radius: 5px;
+        font: {
+            family: v.$fuente-montserrat;
+            weight: bolder;
+        }
+    }
+
+    a:first-child {
+        background-color: v.$blanco;
+
+        transition: all .2s ease-in;
+        &:hover{
+            background-color: v.$naranja;
+            color:v.$blanco;
+        }
+    }  
+
+    a:last-child {
+        background-color: v.$naranja;
+
+        transition: all .2s ease-in;
+        &:hover{
+            background-color: v.$blanco;
+            color:v.$naranja;
+        }
+    }
+  }
+  

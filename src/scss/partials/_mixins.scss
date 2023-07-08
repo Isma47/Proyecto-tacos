@@ -1,0 +1,12 @@
+//flex
+@mixin flex($align-i, $justify-c) {
+    display: flex;
+    align-items: $align-i;
+    justify-content: $justify-c;
+}
+
+
+@mixin grid($noCol, $sizeCol){
+    display: grid;
+    grid-template-columns: repeat($noCol, $sizeCol);
+}
