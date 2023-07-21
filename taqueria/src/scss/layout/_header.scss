@@ -1,0 +1,237 @@
+@use '../partials/mixins' as m;
+@use '../partials/variables' as v;
+
+.header {
+    @include m.flex(center, space-around);
+    padding: 1rem 0;
+    background-color: v.$negro;
+    position: fixed;
+    z-index: 3;
+    width: 100%;
+
+    p,
+    a {
+        color: v.$blanco;
+        text-decoration: none;
+
+        font: {
+            family: v.$fuente-montserrat;
+        }
+    }
+
+    //Taqueria logo y nav
+    .header-logo {
+        @include m.flex(center, center);
+        gap: 2rem;
+
+        p {
+            font-size: 2rem;
+            font-weight: 900;
+        }
+
+        nav {
+            display: none;
+            @include m.tablet{
+                display: flex;
+                gap: 2rem;
+            }
+            a {
+                transition: color .5s ease-in;
+                font-size: .8rem;
+                font-weight: 600;
+            }
+
+            a:hover {
+                color: v.$naranja;
+            }
+        }
+    }
+
+
+    //reservaciones y menu hamburguesa
+    .header-reservaciones {
+        @include m.flex(center, center);
+        gap: 3rem;
+
+        img {
+            width: 10rem;
+        }
+
+        a {
+            display: none;
+            padding: 1rem 2rem;
+            background-color: v.$naranja;
+            border-radius: 5px;
+
+            transition: background-color .3s ease-in;
+
+            &:hover {
+                background-color: adjust-color(v.$naranja, $lightness: -5%);
+            }
+
+            @include m.tablet{
+                & {
+                    display: inline-block;
+                }
+            }
+        }
+
+
+        .header-hamburguesa {
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+
+            div {
+                border-radius: 100px;
+                width: 2.2rem;
+                height: .3rem;
+                background-color: v.$blanco;
+            }
+        }
+        
+    }
+}
+
+.header-presentacion {
+    height: 95vh;
+    background: url('/src/img/portada_web.jpg') bottom/cover;
+    position: relative; 
+  }
+  
+  .header-presentacion__bg {
+    width: 100%;
+    height: 95vh;
+    position: absolute;
+    background-color: v.$negro;
+    opacity: .5;
+  }
+
+  .header-1-grid{
+    @include m.grid(1, 1fr);
+    align-items: center;
+    height: 80vh;
+    position: absolute;
+    z-index: 2;
+    margin-top: 1rem;
+    gap: 3rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  
+
+    @include m.tablet{
+        @include m.grid(2, 1fr)
+    }
+  }
+
+  .header-presentacion__title {
+    
+    h1, p {
+        color: v.$blanco;
+        font-family: v.$fuente-noto;
+    }
+  
+    h1 {
+        font-size: 3rem;
+        color: v.$naranja;
+    }
+  }
+
+  .header-presentacion__boton{
+    @include m.flex(center, center);
+    gap: 4rem;    
+    flex-direction: column;
+    @include m.tablet {
+        flex-direction: row;
+    }
+
+    a {
+        color: v.$negro;
+        padding: 1.4rem 3rem;
+        border-radius: 5px;
+        font: {
+            family: v.$fuente-montserrat;
+            weight: bolder;
+        }
+    }
+
+    a:first-child {
+        background-color: v.$blanco;
+
+        transition: all .2s ease-in;
+        &:hover{
+            background-color: v.$naranja;
+            color:v.$blanco;
+        }
+    }  
+
+    a:last-child {
+        background-color: v.$naranja;
+
+        transition: all .2s ease-in;
+        &:hover{
+            background-color: v.$blanco;
+            color:v.$naranja;
+        }
+    }
+  }
+  
+
+  //MODAL - MENU 
+  .modal-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: v.$naranja;
+    width: 40vh;
+    height: 100vh;
+    text-align: end;
+    padding: 1rem;
+
+    p {
+        color: v.$negro;
+        cursor: pointer;
+        font: {
+            size: 2rem;
+            weight: bolder;   
+        }
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 2rem;
+       font: {
+        family: v.$fuente-noto;
+        weight: bolder;
+       } 
+
+       li {
+        transition: color .4s ease-in-out;
+        cursor: pointer;
+        border-bottom: 1px solid v.$blanco;
+       }
+       li:hover {
+         color:v.$blanco;
+       }
+    }
+}
+
+
+
+  .mostrar-modal {
+    display: block;
+    animation: animacionmodal .5s 1;
+  }
+
+  @keyframes animacionmodal {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+  }
