@@ -2,10 +2,12 @@
 @use '../partials/variables' as v;
 
 .info-servicio {
-    @include m.grid(3, 1fr);
+    @include m.grid(1, 1fr);
     gap: 3rem;
     padding: 1rem;
+    @include m.tablet {
 
+    }
     div:nth-child(odd){
         border-radius: 10px;
         background-color: v.$naranja;
@@ -33,5 +35,79 @@
                 size: 1.2rem;
             }
         }
+    }
+}
+
+
+
+//somos info
+
+.main-somos {
+    @include m.grid(1, 1fr);
+    background-color: v.$negro;
+    @include m.tablet {
+        @include m.grid(2, 1fr);
+    }
+
+    .main-somos__info {
+        padding: 2rem;
+        h2, p{
+            color: v.$blanco;
+            font-family: v.$fuente-noto;
+            line-height: 2;
+        }
+
+        h2 {
+            margin-bottom: 2rem;
+            font: {
+                size: 2rem;
+            }
+        }
+    }
+}
+
+
+.main-menu {
+    @include m.grid(1, 1fr);
+    background-color: v.$naranja;
+
+    .main-menu__photo {
+        height: 40vh;
+        grid-row: 2 / 3;
+        background: url('/src/img/tacos-menu.jpg') center/cover;
+    }
+
+    @include m.tablet {
+        @include m.grid(2, 1fr);
+        .main-menu__photo {
+            grid-row: 1 / 2;
+            height: auto;
+        }
+    }
+
+    .main-menu__productos {
+         h2,h3, ul {
+            padding: 1rem;
+            font-family: v.$fuente-noto;
+            color: v.$blanco;
+            li {
+                margin: .5rem 0;
+            }
+         }
+
+         h2 {
+            text-align: center;
+            font : {
+                size: 3rem;
+                weight: bolder;
+            }
+         }
+         h3 {
+            color: v.$negro;
+            font: {
+                size: 1.5rem;
+                weight: 900;
+            }
+         }
     }
 }

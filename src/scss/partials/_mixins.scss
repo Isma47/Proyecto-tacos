@@ -1,3 +1,4 @@
+@use 'variables' as v;
 //flex
 @mixin flex($align-i, $justify-c) {
     display: flex;
@@ -5,8 +6,28 @@
     justify-content: $justify-c;
 }
 
-
+//Grid
 @mixin grid($noCol, $sizeCol){
     display: grid;
     grid-template-columns: repeat($noCol, $sizeCol);
+}
+
+
+//Medidas
+@mixin mobile {
+    @media (min-width: v.$mobile) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: v.$desktop) {
+        @content;
+    }
 }
