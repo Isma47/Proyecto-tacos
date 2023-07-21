@@ -1,2 +1,0 @@
-# taqueria-proyecto
-# Proyecto-tacos
