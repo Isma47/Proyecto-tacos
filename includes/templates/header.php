@@ -14,14 +14,14 @@
         <div class="header-logo">
             <p>Taqueria Neza</p>
 
-            <nav>
+            <nav <?php echo ($mostrarHeader == true) ? 'header-open' : 'none-header'; ?>>
                 <a href="">SUCURSALES</a>
                 <a href="">MENÚ</a>
             </nav>
         </div>
 
         <!-- reservar y desplegable -->
-        <div class="header-reservaciones">
+        <div class="<?php echo ($mostrarHeader == true) ? 'header-reservaciones' : 'none-header'; ?>">
             <a href="reservaciones.php">RESERVACIÓNES</a>
 
             <div class="header-hamburguesa">

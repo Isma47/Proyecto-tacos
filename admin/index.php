@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['gringas']) {
 
 
 include '../includes/funciones.php';
-templateArch('header');
+templateArch('header', false);
 ?>
 
 <main class="main-tables">
@@ -73,7 +73,7 @@ templateArch('header');
 
     <?php if (isset($_GET['exito']) && $_GET['exito'] === "1") : ?>
         <p class="exito">Articulo creado con exito</p>
-        <?php elseif($_GET['exito'] === "2") :?>
+        <?php elseif(isset($_GET['exito']) && $_GET['exito'] === "2") :?>
         <p class="exito">Articulo actualizado con exito</p>
     <?php endif ?>
     <!--  -->
