@@ -1,0 +1,672 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Noto+Sans:wght@400;600&display=swap");
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/*
+font-family: 'Montserrat', sans-serif;
+font-family: 'Noto Sans', sans-serif;
+*/
+a {
+  text-decoration: none;
+}
+
+.contenedor {
+  max-width: 120rem;
+  margin: auto;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem 0;
+  background-color: #000;
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+}
+.header p,
+.header a {
+  color: #fff;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+}
+.header .header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.header .header-logo p {
+  font-size: 2rem;
+  font-weight: 900;
+}
+.header .header-logo nav {
+  display: none;
+}
+@media (min-width: 768px) {
+  .header .header-logo nav {
+    display: flex;
+    gap: 2rem;
+  }
+}
+.header .header-logo nav a {
+  transition: color 0.5s ease-in;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.header .header-logo nav a:hover {
+  color: #F97316;
+}
+.header .header-reservaciones {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+.header .header-reservaciones img {
+  width: 10rem;
+}
+.header .header-reservaciones a {
+  display: none;
+  padding: 1rem 2rem;
+  background-color: #F97316;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in;
+}
+.header .header-reservaciones a:hover {
+  background-color: #ef6606;
+}
+@media (min-width: 768px) {
+  .header .header-reservaciones a {
+    display: inline-block;
+  }
+}
+.header .header-reservaciones .header-hamburguesa {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.header .header-reservaciones .header-hamburguesa div {
+  border-radius: 100px;
+  width: 2.2rem;
+  height: 0.3rem;
+  background-color: #fff;
+}
+
+.header-presentacion {
+  height: 95vh;
+  background: url("/src/img/portada_web.jpg") bottom/cover;
+  position: relative;
+}
+
+.header-presentacion__bg {
+  width: 100%;
+  height: 95vh;
+  position: absolute;
+  background-color: #000;
+  opacity: 0.5;
+}
+
+.header-1-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  align-items: center;
+  height: 80vh;
+  position: absolute;
+  z-index: 2;
+  margin-top: 1rem;
+  gap: 3rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@media (min-width: 768px) {
+  .header-1-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.header-presentacion__title h1, .header-presentacion__title p {
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+}
+.header-presentacion__title h1 {
+  font-size: 3rem;
+  color: #F97316;
+}
+
+.header-presentacion__boton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .header-presentacion__boton {
+    flex-direction: row;
+  }
+}
+.header-presentacion__boton a {
+  color: #000;
+  padding: 1.4rem 3rem;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+}
+.header-presentacion__boton a:first-child {
+  background-color: #fff;
+  transition: all 0.2s ease-in;
+}
+.header-presentacion__boton a:first-child:hover {
+  background-color: #F97316;
+  color: #fff;
+}
+.header-presentacion__boton a:last-child {
+  background-color: #F97316;
+  transition: all 0.2s ease-in;
+}
+.header-presentacion__boton a:last-child:hover {
+  background-color: #fff;
+  color: #F97316;
+}
+
+.modal-menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #F97316;
+  width: 40vh;
+  height: 100vh;
+  text-align: end;
+  padding: 1rem;
+}
+.modal-menu p {
+  color: #000;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+.modal-menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+  font-family: "Noto Sans", sans-serif;
+  font-weight: bolder;
+}
+.modal-menu ul li {
+  transition: color 0.4s ease-in-out;
+  cursor: pointer;
+  border-bottom: 1px solid #fff;
+}
+.modal-menu ul li:hover {
+  color: #fff;
+}
+
+.mostrar-modal {
+  display: block;
+  animation: animacionmodal 0.5s 1;
+}
+
+@keyframes animacionmodal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.none-header {
+  display: none;
+}
+
+.header-open {
+  display: block;
+}
+
+.info-servicio {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 3rem;
+  padding: 1rem;
+}
+.info-servicio div:nth-child(odd) {
+  border-radius: 10px;
+  background-color: #F97316;
+}
+.info-servicio div:nth-child(odd) p {
+  color: #fff;
+}
+.info-servicio div {
+  text-align: center;
+  padding: 1rem;
+}
+.info-servicio div h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+.info-servicio div p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+}
+
+.main-somos {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  background-color: #000;
+}
+@media (min-width: 768px) {
+  .main-somos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.main-somos .main-somos__info {
+  padding: 2rem;
+}
+.main-somos .main-somos__info h2, .main-somos .main-somos__info p {
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  line-height: 2;
+}
+.main-somos .main-somos__info h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.main-menu {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  background-color: #F97316;
+}
+.main-menu .main-menu__photo {
+  height: 40vh;
+  grid-row: 2/3;
+  background: url("/src/img/tacos-menu.jpg") center/cover;
+}
+@media (min-width: 768px) {
+  .main-menu {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .main-menu .main-menu__photo {
+    grid-row: 1/2;
+    height: auto;
+  }
+}
+.main-menu .main-menu__productos h2, .main-menu .main-menu__productos h3, .main-menu .main-menu__productos ul {
+  padding: 1rem;
+  font-family: "Noto Sans", sans-serif;
+  color: #fff;
+}
+.main-menu .main-menu__productos h2 li, .main-menu .main-menu__productos h3 li, .main-menu .main-menu__productos ul li {
+  margin: 0.5rem 0;
+}
+.main-menu .main-menu__productos h2 {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bolder;
+}
+.main-menu .main-menu__productos h3 {
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.promociones__info {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  padding: 2rem;
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .promociones__info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.promociones__info .promocion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #F97316;
+  padding-bottom: 3rem;
+}
+.promociones__info .promocion span {
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.5rem;
+}
+.promociones__info .promocion a {
+  color: #000;
+  text-decoration: underline;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 0.6rem;
+}
+.promociones__info .promocion a:hover {
+  font-weight: 900;
+}
+
+.politicas-promo {
+  width: 100%;
+  text-align: center;
+}
+.politicas-promo a {
+  display: inline-block;
+  background-color: #F97316;
+  padding: 1rem 3rem;
+  border-radius: 5px;
+  color: #000;
+  font-size: 1.2rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+}
+
+.formulario {
+  max-width: 40rem;
+  margin: auto;
+}
+.formulario h2 {
+  font-size: 2.5rem;
+  font-family: "Noto Sans", sans-serif;
+  margin-bottom: 2rem;
+  color: #fff;
+  text-align: center;
+}
+
+.reservaciones-index {
+  background-color: #000;
+  padding: 3rem;
+  margin-top: 3rem;
+}
+
+.form-index {
+  background: #F97316;
+  border-radius: 10px;
+  padding: 2rem;
+}
+.form-index .form-datos, .form-index .form-cita {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form-index label {
+  color: #fff;
+  font-size: 2rem;
+  font-family: "arial";
+}
+.form-index input, .form-index select {
+  padding: 0.5rem;
+  border: none;
+}
+.form-index input[type=submit] {
+  display: block;
+  margin: auto;
+  background-color: #000;
+  color: #fff;
+  padding: 1rem 3rem;
+  margin-top: 2rem;
+}
+
+.errores {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+.errores p {
+  border-radius: 10px;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  animation: erroresAnimacion 4s 1 ease-in-out;
+}
+@keyframes erroresAnimacion {
+  0% {
+    opacity: 0.8;
+    padding: 0.3rem;
+    background-color: rgb(253, 50, 50);
+  }
+  50% {
+    opacity: 1;
+    padding: 0.5rem;
+    background-color: red;
+  }
+  99% {
+    opacity: 0.8;
+    padding: 0.3rem;
+    background-color: rgb(253, 50, 50);
+  }
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.reservacion-cliente {
+  max-width: 60%;
+  background-color: #F97316;
+  margin: auto;
+  margin-top: 2rem;
+  padding: 3rem;
+  border-radius: 10px;
+}
+.reservacion-cliente p {
+  border-radius: 5px;
+  background-color: #fff;
+  margin-top: 1rem;
+  padding: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+}
+.reservacion-cliente span {
+  font-weight: 900;
+}
+.reservacion-cliente .regresar {
+  display: inline-block;
+  margin: 2rem auto 0;
+  padding: 1rem 3rem;
+  background-color: rgb(64, 230, 64);
+  border-radius: 10px;
+  color: #000;
+  font-weight: 900;
+  font-size: 1.1rem;
+  font-family: "Noto Sans", sans-serif;
+  transition: background-color 0.3s ease-in;
+}
+.reservacion-cliente .regresar:hover {
+  background-color: rgb(27, 158, 27);
+}
+
+h1 {
+  padding-top: 7rem;
+  text-align: center;
+  color: #000;
+  font-size: 2rem;
+  font-family: "Arial";
+}
+
+.exito {
+  margin: 2rem 0;
+  background-color: rgb(17, 230, 52);
+  text-align: center;
+  font-weight: 900;
+  font-size: 1.5rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.crear-propiedad {
+  background-color: rgb(17, 230, 52);
+  padding: 1rem 3rem;
+  color: #000;
+  display: inline-block;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  transition: background-color 0.5s ease-in-out;
+}
+.crear-propiedad:hover {
+  background-color: rgb(14, 206, 46);
+}
+
+.table h2 {
+  margin: 1rem 0;
+  text-align: center;
+  font-size: 2rem;
+  font-family: "arial";
+}
+
+table {
+  padding: 1rem;
+  max-width: 80%;
+  width: 100%;
+  margin: auto;
+  background-color: #F97316;
+}
+table th {
+  color: #fff;
+  font-weight: 900;
+  font-size: 2rem;
+  font-family: "Montserrat", sans-serif;
+}
+table td {
+  background-color: #fff;
+  border: solid 2px #000;
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: "Montserrat", sans-serif;
+}
+table td a {
+  margin: 0.3rem 0;
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  display: block;
+  background-color: rgb(245, 43, 43);
+}
+table td a:last-child {
+  background-color: rgb(17, 230, 52);
+}
+
+.borrar {
+  width: 100%;
+  display: block;
+  background-color: rgb(245, 43, 43);
+  margin: 0.3rem 0;
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+.main-crear {
+  padding-top: 10rem;
+}
+
+.crear-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 2rem;
+}
+
+.formulario-crear {
+  display: flex;
+  flex-direction: column;
+  max-width: 80rem;
+  margin: auto;
+  padding: 2rem;
+  background-color: #F97316;
+}
+.formulario-crear label {
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.5rem;
+  font-family: "Noto Sans", sans-serif;
+}
+.formulario-crear input {
+  border: none;
+  padding: 1rem;
+}
+.formulario-crear input[type=submit] {
+  margin: 2rem auto 0;
+  padding: 1rem 3rem;
+  background-color: #000;
+  color: #fff;
+  border-radius: 1rem;
+  transition: background-color 0.3s ease-in;
+}
+.formulario-crear input[type=submit]:hover {
+  background-color: rgb(17, 17, 17);
+}
+
+.error {
+  margin-top: 0.5rem;
+  background-color: red;
+  padding: 0.5rem;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Sans", sans-serif;
+}
+
+.form-reservaciones {
+  padding-top: 5rem;
+}
+
+.grid-reservacionees {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 5rem;
+  padding: 0 1rem;
+}
+.grid-reservacionees div {
+  background-color: #F97316;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 14px -2px rgb(249, 115, 22);
+  -webkit-box-shadow: 5px 5px 14px -2px rgb(249, 115, 22);
+  -moz-box-shadow: 5px 5px 14px -2px rgb(249, 115, 22);
+}
+.grid-reservacionees div h2, .grid-reservacionees div p {
+  color: #fff;
+  margin: 0.5rem 0;
+  font-family: "Noto Sans", sans-serif;
+}
+.grid-reservacionees div h2 {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 900;
+}
+.grid-reservacionees div a {
+  font-weight: 900;
+  font-family: "Noto Sans", sans-serif;
+  color: #000;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  padding: 0.3rem;
+  background-color: #fff;
+}
+
+/*# sourceMappingURL=app.css.map */
